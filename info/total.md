@@ -1,6 +1,7 @@
 We are using a semi-automatized painting system,
 but this system is not perfect.
 As such we need to develop an optimisation algorithm for it.
+
 For each step the system can paint only one side of an item.
 After that, an operator must reload the machine and paint the other side. The system will detect painted sides automatically.
 The painting process always takes the same length of of time to complete and K surfaces may be painted at a time.
@@ -35,7 +36,7 @@ This is similar to trying to cook three steaks in one frying pan.
 Each steak has two sides and it takes a minute to cook one side of two steaks, so
 how would you cook each of the steaks in three minutes?
 This task takes the concept,  but models it in a technical way.
-This is a technological process which you oftnen find in a factories where certain goods must be made with precision timing.
+This is a technological process which you often find in a factories where certain goods must be made with precision timing.
 
 **Precondition:**
 
