@@ -1,6 +1,6 @@
-from checkio_referee import RefereeBase
+from checkio_referee import RefereeCodeGolf
 from checkio_referee.covercode import py_unwrap_args
-from checkio_referee.validators import BaseValidator, ValidationError
+from checkio_referee.validators import BaseValidator, ValidatorResult
 
 import settings
 import settings_env
@@ -11,40 +11,35 @@ class AutoPaintingValidator(BaseValidator):
     def validate(self, outer_result):
         steps, k, n = self._test["validation_data"]
         if not isinstance(outer_result, str):
-            self.additional_data = "This is not a string."
-            raise ValidationError
+            return ValidatorResult(False, "This is not a string.")
         actions = outer_result.split(",")
         if len(actions) > steps:
-            self.additional_data = "It can be shorter."
-            raise ValidationError
+            return ValidatorResult(False, "It can be shorter.")
         details = [0 for _ in range(n)]
         good_ch = "".join(str(r) for r in range(n))
         good_ch += ","
         if any(ch not in good_ch for ch in outer_result):
-            self.additional_data = "Wrong symbol in the result."
-            raise ValidationError
+            return ValidatorResult(False, "Wrong symbol in the result.")
         for act in actions:
             if len(act) > k:
-                self.additional_data = "The system can contain {0} detail(s).".format(k)
-                raise ValidationError
+                return ValidatorResult(False, "The system can contain {0} detail(s).".format(k))
             if len(set(act)) < len(act):
-                self.additional_data = "You can not place one detail twice in one load"
-                raise ValidationError
+                return ValidatorResult(False, "You can not place one detail twice in one load")
             for ch in act:
                 details[int(ch)] += 1
         if any(d < 2 for d in details):
-            self.additional_data = "I see no painted details."
-            raise ValidationError
+            return ValidatorResult(False, "I see no painted details.")
         if any(d > 2 for d in details):
-            self.additional_data = "I see over painted details."
-            raise ValidationError
+            return ValidatorResult(False, "I see over painted details.")
+        return ValidatorResult(True)
 
-
-class Referee(RefereeBase):
+class Referee(RefereeCodeGolf):
     TESTS = TESTS
+    DEFAULT_LENGTH = 100
+    BASE_POINTS = 10
     EXECUTABLE_PATH = settings.EXECUTABLE_PATH
     CURRENT_ENV = settings_env.CURRENT_ENV
-    FUNCTION_NAME = "paint"
+    FUNCTION_NAME = "golf"
     VALIDATOR = AutoPaintingValidator
     ENV_COVERCODE = {
         "python_2": py_unwrap_args,

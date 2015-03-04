@@ -12,3 +12,7 @@ Items are numbered from 0 to 9.
 You are given the paint holding capacity of the machine (K) and the quantity of items (N).
 You should return the sequence  which needs painting as a string where each action is the number of painted items. 
 Actions separated by comma (",").
+
+In this mission the main goal to make your code as short as possible.
+The shorter your code, the more points you earn.
+Your score for this mission is dynamic and directly related to the length of your code.
