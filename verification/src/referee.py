@@ -39,9 +39,9 @@ class Referee(RefereeCodeGolf):
     TESTS = TESTS
     DEFAULT_LENGTH = 100
     BASE_POINTS = 10
-    EXECUTABLE_PATH = settings.EXECUTABLE_PATH
-    CURRENT_ENV = settings_env.CURRENT_ENV
-    FUNCTION_NAME = "golf"
+    ENVIRONMENTS = settings_env.ENVIRONMENTS
+
+    DEFAULT_FUNCTION_NAME = "golf"
     VALIDATOR = AutoPaintingValidator
     CALLED_REPRESENTATIONS = {
         "python_3": representations.unwrap_arg_representation,
