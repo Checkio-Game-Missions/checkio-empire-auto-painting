@@ -37,7 +37,7 @@ class AutoPaintingValidator(validators.BaseValidator):
 
 class Referee(RefereeCodeGolf):
     TESTS = TESTS
-    DEFAULT_LENGTH = 100
+    DEFAULT_LENGTH = 150
     BASE_POINTS = 10
     ENVIRONMENTS = settings_env.ENVIRONMENTS
 
