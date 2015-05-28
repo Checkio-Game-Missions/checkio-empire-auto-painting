@@ -13,4 +13,4 @@ Your code should be shorter than 150 characters.
 
 **Rank3:**
 
-Your code should be shorter than 120 characters.
+Your code should be shorter than 100 characters.
