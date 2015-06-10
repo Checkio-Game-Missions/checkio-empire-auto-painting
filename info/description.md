@@ -5,9 +5,6 @@ The painting process always takes the same length of of time to complete and K s
 You should write a program which will allow us to paint N (0 < N ≤ 10) surfaces in the shortest possible timeframe.
 Be careful that you don't paint the same item more than twice.
 
-
-![Paint](system.png)
-
 Items are numbered from 0 to 9.
 You are given the paint holding capacity of the machine (K) and the quantity of items (N).
 You should return the sequence  which needs painting as a string where each action is the number of painted items. 
